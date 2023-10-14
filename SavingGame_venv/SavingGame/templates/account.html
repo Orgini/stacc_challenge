@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Stacc Challenge - Accounts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_2.css') }}">
+</head>
+<body>
+<div class="content-wrapper">
+<!-- Navigation Bar -->
+<nav>
+    <div class="nav-container">
+        <a href="#" class="logo">Bank Stacc Challenge</a>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Account</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Accounts Table -->
+<section class="description">
+    <h2>{{ account[0].owner }}'s Account</h2>
+    <div class="account-details">
+        <p><strong>ID:</strong> {{ account[0].id }}</p>
+        <p><strong>Account Number:</strong> {{ account[0].account_number }}</p>
+        <p><strong>Type:</strong> {{ account[0].account_type }}</p>
+        <p><strong>Balance:</strong> {{ account[0].balance }} {{ account[0].currency }}</p>
+        <p><strong>Currency:</strong> {{ account[0].currency }}</p>
+        <p><strong>Owner:</strong> {{ account[0].owner }}</p>
+    </div>
+</section>
+
+<section class="chatbot">
+    <p id="chat-title" class="chat-header">Finantial advice bot</p>
+
+    <form id="chat-form" class="chat-form" action="/account" method="post">
+        <textarea id="user-input" class="chat-input" name="user_input" placeholder="Type your message..." rows="4" cols="50"></textarea>
+        <br><br>
+        <input id="submit-btn" class="chat-btn" type="submit" value="Send">
+    </form>
+    
+    <div id="response-container" class="response-container">
+        {% if chat_response %}
+            <strong id="chat-label" class="chat-label">FinansGPT:</strong> <span id="chat-response" class="chat-response">{{ chat_response }}</span>
+        {% endif %}
+    </div>
+    
+</section>
+<br><br>
+
+
+
+<section class="description">
+
+    <form action="/account" method="post">
+        <label for="deposit">Deposit Amount:</label>
+        <input type="number" step="0.01" id="deposit" name="deposit" required>
+        <input type="submit" value="Deposit">
+    </form>
+</section>
+</div>
+<!-- Footer -->
+<footer>
+    <p>&copy; 2023 Bank Stacc Challenge. All rights reserved.</p>
+</footer>
+
+
+</body>
+</html>
+
