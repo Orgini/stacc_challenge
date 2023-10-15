@@ -10,7 +10,9 @@ import os
 load_dotenv('SavingGame_venv\SavingGame\keys.env')
 app = Flask(__name__)
 OPENAPI_KEY = os.getenv('OPENAPI_KEY')
-openai.api_key = OPENAPI_KEY
+openai.api_key = OPENAPI_KEY#key would be stored in a .env normally but in gitignore, but for this task its included
+
+
 #Dummy data that would normally be stored on a DB uniquely to a user
 account_data = [
         {
