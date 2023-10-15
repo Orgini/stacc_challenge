@@ -1,0 +1,1 @@
+Koden min bruker en API key fra openAI, denne ble disablet når jeg lastet opp filene til repo, så chatbotten vill ikke fungere uten en ny key i .env filen. Jeg kan eventuellt supplere med en ny key om en demonstrasjon på neste møte er aktuellt
